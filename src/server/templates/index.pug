@@ -1,0 +1,29 @@
+doctype html
+html
+    head
+        title Candidate Clicker
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        link(rel="icon", href="/static/images/favicon.png", type="image/png")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Open+Sans:400,700")
+        link(rel="stylesheet", href="/static/build/styles.css")
+    body
+        #wrapper
+            h1.
+                Click the Candidates
+            main#candidates
+                each candidate in candidates
+                    figure.candidate
+                        img(
+                            alt=candidate.name, 
+                            src=candidate.src, 
+                            height=candidate.height,
+                            width=candidate.width
+                        )
+                        figcaption
+                            h3 !{candidate.name}
+                            span !{candidate.clicks}
+            footer.
+                &copy; !{year} <a href="mailto:monte@mishkin.com" target="_blank">CC</a>
+        script(async, src="/static/build/client.js")
+        script(async, src="//www.google-analytics.com/analytics.js")
+  

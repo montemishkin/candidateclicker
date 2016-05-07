@@ -1,0 +1,13 @@
+- ga property id
+- tests
+- be more secure
+    - http://expressjs.com/en/advanced/best-practice-security.html
+
+- optimization
+    - caching
+    - clustering
+    - have nginx do more (rather than express):
+        - serve static files (and favicon)
+        - gzip http://nginx.org/en/docs/http/ngx_http_gzip_module.html
+    - google page speed insights
+    - SEO!!!!
