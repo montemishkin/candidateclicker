@@ -4,7 +4,7 @@ import $ from 'jquery'
 import commafy from 'util/commafy'
 
 
-$('.candidate').click(function (...args) {
+$('.candidate').click(function () {
     const $this = $(this)
     const name = $this.find('.candidate-name').text()
     // TODO: POST "increment this candidate"
