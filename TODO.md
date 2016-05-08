@@ -1,3 +1,4 @@
+- favicon
 - ga property id
 - tests
 - be more secure

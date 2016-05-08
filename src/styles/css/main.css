@@ -1,48 +1,130 @@
-html, body, #wrapper {
-    min-height: 100%;
+$small-font-size: 16px;
+$normal-font-size: 24px;
+$medium-font-size: 24px;
+$large-font-size: 36px;
+$bar-padding: 20px 40px;
+
+$red: #E4001B;
+$blue: #0066ba;
+$blue-inverse: #fff;
+$light-blue: #97c5ed;
+$dark-blue: #0050a0;
+$white: #fff;
+$white-inverse: #000;
+
+html,
+body {
     height: 100%;
-    font-size: 14px;
 }
 
-#wrapper h1 {
-    background-color: red;
+
+html,
+body,
+#wrapper {
+    min-height: 100%;
+}
+
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+
+#wrapper header {
+    padding: $bar-padding;
+    background-color: $blue;
+    background-image: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0.2) 0%,
+        $blue 100%
+    );
+    color: $blue-inverse;
+}
+
+
+#wrapper header h1 {
+    font-size: $large-font-size;
+    font-weight: normal;
+}
+
+
+#wrapper header h2 {
+    font-size: $medium-font-size;
+    font-weight: normal;
+    margin-top: 10px;
 }
 
 
 #wrapper footer {
-
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    color: $white-inverse;
+    padding: $bar-padding;
+    text-align: center;
+    font-size: $small-font-size;
 }
 
 
 #wrapper footer a {
+    color: $white-inverse;
+    text-decoration: none;
+}
 
+
+#wrapper footer a:hover,
+#wrapper footer a:active,
+#wrapper footer a:focus {
+    text-decoration: underline;
 }
 
 
 #candidates {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 900px;
+    width: 90%;
+    flex-grow: 1;
+    margin: 0 auto;
 }
 
 
-.candidate figure {
-    margin: 10px;
+.candidate {
+    margin: 20px;
+    padding: 20px;
+    background-color: $red;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
 .candidate img {
+    width: 20vw;
+    height: auto;
+    min-width: 200px;
+    max-width: 300px;
+    border-radius: 3px;
 }
 
 
 .candidate figcaption {
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
 .candidate h3 {
-
+    font-size: $normal-font-size;
+    font-weight: normal;
+    padding: 10px;
 }
 
 
 .candidate span {
-
+    font-size: $normal-font-size;
 }
