@@ -1,5 +1,7 @@
 // third party imports
 import $ from 'jquery'
+// local imports
+import commafy from 'util/commafy'
 
 
 $('.candidate').click(function (...args) {
@@ -8,7 +10,7 @@ $('.candidate').click(function (...args) {
     // TODO: POST "increment this candidate"
 
     const span = $this.find('.candidate-clicks')
-    const clicks = parseInt(span.text(), 10)
+    const clicks = parseInt(span.text().replace(/\,/g, ''), 10)
 
-    span.text(clicks + 1)
+    span.text(commafy(clicks + 1))
 })

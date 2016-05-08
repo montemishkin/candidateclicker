@@ -3,6 +3,7 @@ import express from 'express'
 // local imports
 import projectPaths from 'config/projectPaths'
 import randomPermutation from 'util/randomPermutation'
+import commafy from 'util/commafy'
 import candidates from './candidates'
 
 const server = express()
@@ -18,7 +19,13 @@ server.set('views', projectPaths.templatesDir)
 
 server.all('*', (req, res) => {
     res.render('index', {
-        candidates: randomPermutation(candidates),
+        candidates: randomPermutation(candidates)
+            .map(candidate => {
+                return {
+                    ...candidate,
+                    clicks: commafy(candidate.clicks),
+                }
+            }),
         year: (new Date()).getFullYear(),
     })
 })
