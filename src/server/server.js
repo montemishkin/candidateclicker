@@ -30,8 +30,8 @@ server.set('views', './templates')
 // route static files to public dir
 server.use(projectPaths.publicStaticPath, serveStatic(projectPaths.publicDir))
 
-server.all('/api', apiServer)
-server.all('*', htmlServer)
+server.use('/api', apiServer)
+server.use('*', htmlServer)
 
 
 export default server

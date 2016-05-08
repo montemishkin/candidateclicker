@@ -2,15 +2,56 @@
 import Sequelize from 'sequelize'
 // local imports
 import settings from 'config/settings'
-import applySchema from './schema'
+import candidates from 'candidates'
 
 
 const db = new Sequelize(settings.db, settings.dbUser, settings.dbPassword, {
     host: 'localhost',
-    dialect: 'postgres',
+    // TODO: use postgres
+    dialect: 'sqlite',
+    storage: './db.sqlite',
 })
 
-applySchema(db)
+
+export const Candidate = db.define('candidate', {
+    name: {
+        type: Sequelize.STRING,
+        unique: true,
+    },
+    clicks: {
+        type: Sequelize.INTEGER,
+    },
+    src: {
+        type: Sequelize.STRING,
+        unique: true,
+    },
+    height: {
+        type: Sequelize.INTEGER,
+    },
+    width: {
+        type: Sequelize.INTEGER,
+    },
+})
+
+
+db.sync().then(() => {
+    candidates.forEach(candidate => {
+        Candidate.findOrCreate({
+            where: {
+                name: candidate.name,
+            },
+            defaults: {
+                src: candidate.src,
+                height: candidate.height,
+                width: candidate.width,
+                clicks: 0,
+            },
+        })
+    })
+}).catch(error => {
+    // TODO: handle this
+    throw error
+})
 
 
 export default db
