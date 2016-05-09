@@ -4,18 +4,14 @@ import express from 'express'
 import projectPaths from 'config/projectPaths'
 import randomPermutation from 'util/randomPermutation'
 import commafy from 'util/commafy'
-import {Candidate} from 'server/db'
+import {Candidate} from 'db'
 
 const server = express()
 
 
-/* Server-wide Middleware */
-
 server.set('view engine', 'pug')
-server.set('views', projectPaths.templatesDir)
+server.set('views', './templates')
 
-
-/* Routing */
 
 server.all('*', (req, res) => {
     Candidate.all().then(candidates => {

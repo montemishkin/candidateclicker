@@ -8,7 +8,6 @@ var del = require('del')
 var mkdirp = require('mkdirp')
 var karma = require('karma')
 var webpack = require('webpack')
-var nodemon = require('nodemon')
 // local imports
 var projectPaths = require('./config/projectPaths')
 
@@ -35,58 +34,18 @@ var tasks = {}
 
 
 /**
- * Default to watching client and server, and runing server.
+ * Default to watching.
  */
 tasks['default'] = function () {
-    runRequestedTaskNames(tasks, [
-        'clean',
-        'watch-client',
-        'watch-server',
-        'run-server'
-    ])
+    runRequestedTaskNames(tasks, ['watch'])
 }
 
 
 /**
- * Build everything needed for production.
+ * Watch entry point.
  */
-tasks['build-production'] = function () {
-    runRequestedTaskNames(tasks, [
-        'clean',
-        'build-client-production',
-        'build-server-production',
-    ])
-}
-
-
-/**
- * Run the development server.
- */
-tasks['run-server'] = function () {
-    nodemon({
-        script: projectPaths.serverBuild,
-        watch: projectPaths.serverBuild,
-        args: ['8000'],
-    })
-}
-
-
-/**
- * Watch client entry point.
- */
-tasks['watch-client'] = function () {
-    var config = require(projectPaths.webpackClientConfig)
-    config.watch = true
-
-    webpack(config, webpackCallback)
-}
-
-
-/**
- * Watch server entry point.
- */
-tasks['watch-server'] = function () {
-    var config = require(projectPaths.webpackServerConfig)
+tasks['watch'] = function () {
+    var config = require(projectPaths.webpackConfig)
     config.watch = true
 
     webpack(config, webpackCallback)
@@ -120,39 +79,24 @@ tasks['tdd'] = function () {
 
 
 /**
- * Build client entry point for production.
+ * Build for production.
  */
-tasks['build-client-production'] = function () {
+tasks['build-production'] = function () {
     setProductionEnvironment()
 
-    var config = require(projectPaths.webpackClientConfig)
+    var config = require(projectPaths.webpackConfig)
 
     webpack(config, webpackCallback)
 }
 
-
-/**
- * Build server entry point for production.
- */
-tasks['build-server-production'] = function () {
-    setProductionEnvironment()
-
-    var config = require(projectPaths.webpackServerConfig)
-
-    webpack(config, webpackCallback)
-}
 
 
 /**
  * Remove ALL previously built files.
  */
 tasks['clean'] = function () {
-    del.sync([
-        projectPaths.privateBuildDir,
-        projectPaths.publicBuildDir,
-    ])
-    mkdirp.sync(projectPaths.privateBuildDir)
-    mkdirp.sync(projectPaths.publicBuildDir)
+    del.sync(projectPaths.buildDir)
+    mkdirp.sync(projectPaths.buildDir)
 }
 
 

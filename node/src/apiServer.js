@@ -2,17 +2,11 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 // local imports
-import {Candidate} from 'server/db'
+import {Candidate} from 'db'
 
 
 const server = express()
 const jsonParser = bodyParser.json()
-
-
-/* Server-wide Middleware */
-
-
-/* Routing */
 
 
 server.all('/poll', (req, res) => {

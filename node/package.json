@@ -1,0 +1,31 @@
+{
+  "name": "candidateclicker-node",
+  "version": "0.0.0",
+  "description": "Click on the candidates [candidateclicker.com](http://candidateclicker.com).",
+  "author": "Monte Mishkin",
+  "private": true,
+  "devDependencies": {
+    "babel-core": "^6.6.0",
+    "babel-eslint": "^5.0.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-stage-1": "^6.5.0",
+    "chai": "^3.5.0",
+    "del": "^2.1.0",
+    "eslint": "^1.10.1",
+    "eslint-loader": "^1.1.1",
+    "mkdirp": "^0.5.1",
+    "mocha": "^2.4.5",
+    "webpack": "^1.12.14"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.6.0",
+    "body-parser": "^1.15.1",
+    "express": "^4.13.3",
+    "lodash": "^4.12.0",
+    "morgan": "^1.7.0",
+    "pug": "^2.0.0-alpha6",
+    "sequelize": "^3.23.0",
+    "sqlite3": "^3.1.3"
+  }
+}

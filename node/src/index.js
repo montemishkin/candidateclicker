@@ -9,7 +9,7 @@ import server from './server'
 // interpret first arg from command line as port number
 const portArg = parseInt(process.argv[2], 10)
 // port to listen on
-const port = isValidPort(portArg) ? portArg : 8080
+const port = isValidPort(portArg) ? portArg : 8000
 
 
 /* eslint-disable no-console */
