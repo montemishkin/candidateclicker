@@ -8,8 +8,11 @@
 - use sudo to build the docker images
 
 ```sh
-sudo docker run -dP --name cc-psql -e POSTGRES_PASSWORD=cSLV092lD9A1vasl cc-psql \
-    && sudo docker run -dP --name cc-node1 --link cc-psql:cc-psql cc-node \
+sudo docker run -dP --name cc-psql -e POSTGRES_PASSWORD=mysecretpassword cc-psql
+
+# wait a bit for db to setup....
+
+sudo docker run -dP --name cc-node1 --link cc-psql:cc-psql cc-node \
     && sudo docker run -dP --name cc-node2 --link cc-psql:cc-psql cc-node \
     && sudo docker run -dP --name cc-node3 --link cc-psql:cc-psql cc-node \
     && sudo docker run -d -p 80:80 --name cc-nginx --link cc-node1:cc-node1 --link cc-node2:cc-node2 --link cc-node3:cc-node3 cc-nginx
@@ -18,13 +21,8 @@ sudo docker run -dP --name cc-psql -e POSTGRES_PASSWORD=cSLV092lD9A1vasl cc-psql
 
 
 
-
 # Development help
 
-docker stop cc-nginx cc-node1 cc-node2 cc-node3 \
-    && docker rm cc-nginx cc-node1 cc-node2 cc-node3
-
-docker run -dP --name cc-node1 --link cc-psql:cc-psql cc-node \
-    && docker run -dP --name cc-node2 --link cc-psql:cc-psql cc-node \
-    && docker run -dP --name cc-node3 --link cc-psql:cc-psql cc-node \
-    && docker run -dP --name cc-nginx --link cc-node1:cc-node1 --link cc-node2:cc-node2 --link cc-node3:cc-node3 cc-nginx
+```sh
+sudo docker stop cc-psql cc-node1 cc-node2 cc-node3 cc-nginx && sudo docker rm cc-psql cc-node1 cc-node2 cc-node3 cc-nginx
+```
