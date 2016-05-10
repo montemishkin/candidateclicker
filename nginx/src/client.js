@@ -4,6 +4,12 @@ import $ from 'jquery'
 import commafy from 'util/commafy'
 import uncommafy from 'util/uncommafy'
 
+// see: https://developers.google.com/analytics/devguides/collection/analyticsjs/single-page-applications
+// update google analytics tracker to current route
+ga('set', 'page', window.location.pathname)
+// send a pageview hit to google analytics
+ga('send', 'pageview')
+
 
 const POLL_PERIOD = 2000
 const $candidate = $('.candidate')
@@ -45,6 +51,10 @@ $candidate.click(function () {
     const clicks = uncommafy(span.text())
 
     span.text(commafy(clicks + 1))
+
+    // see: https://developers.google.com/analytics/devguides/collection/analyticsjs/events#implementation
+    // indicate that this candidate has been clicked
+    ga('send', 'event', 'candidate', 'click', name, clicks)
 })
 
 
