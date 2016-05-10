@@ -3,26 +3,24 @@ import $ from 'jquery'
 // local imports
 import commafy from 'util/commafy'
 import uncommafy from 'util/uncommafy'
-// import candidates from 'candidates'   // just find candidate names from html
 
 
 const POLL_PERIOD = 2000
 const $candidate = $('.candidate')
-const nameTo$Span = {}
-
-// candidates.reduce((state, candidate) => {
-//     return {
-//         ...state,
-//         [candidate.name]: $candidate
-//             .filter((_, el) => {
-//                 return $(el).find('.candidate-name').text() === candidate.name
-//             })
-//             .map((_, el) => {
-//                 return $(el).find('.candidate-clicks')
-//             }).get(0),
-//     }
-// }, {})
-window.nameTo$Span = nameTo$Span
+const nameTo$Span = $candidate
+    .map((_, el) => {
+        return {
+            name: $(el).find('.candidate-name').text(),
+            $span: $(el).find('.candidate-clicks'),
+        }
+    })
+    .get()
+    .reduce((state, next) => {
+        return {
+            ...state,
+            [next.name]: next.$span,
+        }
+    }, {})
 
 let lastUpdateTime = (new Date()).getTime()
 
