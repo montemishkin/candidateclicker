@@ -47,7 +47,7 @@ db.sync().then(() => {
         })
     })
 }).catch(error => {
-    // TODO: handle this
+    // TODO: improve error handling
     throw error
 })
 

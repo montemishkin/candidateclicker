@@ -25,7 +25,7 @@ module.exports = {
     sourceDir: sourceDir,
     publicDir: publicDir,
     buildDir: buildDir,
-    publicStaticPath: '/static',  // TODO: shouldnt need this?
+    publicStaticPath: '/static',
     // entry points
     entry: entry,
     // built files

@@ -29,9 +29,9 @@ server.all('*', (req, res) => {
             ),
             year: (new Date()).getFullYear(),
         })
-    }).catch(error => {
-        // TODO
-        throw error
+    }).catch(() => {
+        // TODO: improve error handling
+        res.send('woops!')
     })
 })
 

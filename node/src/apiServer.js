@@ -17,9 +17,9 @@ server.all('/poll', (req, res) => {
                 [candidate.name]: candidate.clicks,
             }
         }, {}))
-    }).catch(error => {
-        // TODO: handle this
-        throw error
+    }).catch(() => {
+        // TODO: improve error handling
+        res.json({})
     })
 })
 
@@ -39,9 +39,9 @@ server.post('/increment', jsonParser, (req, res) => {
                     [candidate.name]: candidate.clicks,
                 }
             }, {}))
-        }).catch(error => {
-            // TODO: handle this
-            throw error
+        }).catch(() => {
+            // TODO: improve error handling
+            res.json({})
         })
 })
 

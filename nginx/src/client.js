@@ -36,7 +36,7 @@ $candidate.click(function () {
         url: '/api/increment',
         success: updateClicks,
         error(_, __, error) {
-            // TODO: handle this
+            // TODO: improve error handling
             throw error
         },
     })
@@ -75,7 +75,7 @@ function poll(then) {
             then()
         },
         error(_, __, error) {
-            // TODO: handle this
+            // TODO: improve error handling
             throw error
         },
     })
