@@ -28,7 +28,7 @@ server.post('/increment', jsonParser, (req, res) => {
     Candidate.find({where: {name: req.body.name}})
         .then(candidate => {
             if (candidate) {
-                candidate.update({clicks: candidate.clicks + 1})
+                return candidate.update({clicks: candidate.clicks + 1})
             }
         })
         .then(() => Candidate.all())
