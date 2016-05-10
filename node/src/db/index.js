@@ -6,10 +6,8 @@ import candidates from 'candidates'
 
 
 const db = new Sequelize(settings.db, settings.dbUser, settings.dbPassword, {
-    host: 'localhost',
-    // TODO: use postgres
-    dialect: 'sqlite',
-    storage: './db.sqlite',
+    host: settings.dbHost,
+    dialect: 'postgres',
 })
 
 
