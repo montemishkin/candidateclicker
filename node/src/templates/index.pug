@@ -16,8 +16,8 @@ html
                 each candidate in candidates
                     figure.candidate
                         img(
-                            alt=candidate.name, 
-                            src=candidate.src, 
+                            alt=candidate.name,
+                            src=candidate.src,
                             height=candidate.height,
                             width=candidate.width
                         )
@@ -26,6 +26,5 @@ html
                             span.candidate-clicks !{candidate.clicks}
             footer.
                 &copy; !{year} <a href="mailto:candidateclicker@gmail.com" target="_blank">CC</a>
-        script(async, src="/static/build/client.js")
+        script(async, src="/static/build/index.js")
         script(async, src="//www.google-analytics.com/analytics.js")
-  
