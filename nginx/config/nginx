@@ -19,6 +19,18 @@ http {
     server {
         listen 80;
 
+        gzip on;
+        gzip_comp_level 6;
+        gzip_min_length 256;
+        gzip_proxied any;
+        gzip_types
+            application/javascript
+            application/json
+            image/svg+xml
+            text/css
+            text/plain
+        ;
+
         server_name candidateclicker.com www.candidateclicker.com;
 
         location /static/ {
