@@ -27,6 +27,7 @@ http {
             application/javascript
             application/json
             image/svg+xml
+            image/jpeg
             text/css
             text/plain
         ;

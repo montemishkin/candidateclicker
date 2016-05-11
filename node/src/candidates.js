@@ -6,17 +6,17 @@ export default [
     {
         name: 'Donald Trump',
         src: projectPaths.publicStaticPath + '/images/Donald_Trump.jpeg',
-        width: 330,
-        height: 330,
+        width: 200,
+        height: 200,
     }, {
         name: 'Hillary Clinton',
         src: projectPaths.publicStaticPath + '/images/Hillary_Clinton.jpeg',
-        width: 640,
-        height: 640,
+        width: 200,
+        height: 200,
     }, {
         name: 'Bernie Sanders',
         src: projectPaths.publicStaticPath + '/images/Bernie_Sanders.jpeg',
-        width: 640,
-        height: 640,
+        width: 200,
+        height: 200,
     },
 ]
