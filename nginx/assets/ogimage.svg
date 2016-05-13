@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     width="1200"
+     height="630"
+     viewBox="0 0 1200.0001 630.00001"
+     id="svg2"
+     version="1.1"
+     inkscape:version="0.91 r13725"
+     sodipodi:docname="ogimage.svg">
+    <defs
+         id="defs4">
+        <linearGradient
+             inkscape:collect="always"
+             id="linearGradient8113">
+            <stop
+                 style="stop-color:#0066ba"
+                 offset="0"
+                 id="stop8115" />
+            <stop
+                 style="stop-color:#0066ba;stop-opacity:0"
+                 offset="1"
+                 id="stop8117" />
+        </linearGradient>
+        <linearGradient
+             inkscape:collect="always"
+             xlink:href="#linearGradient8113"
+             id="linearGradient8119"
+             x1="-64.555069"
+             y1="303.31776"
+             x2="3988.1169"
+             y2="328.85486"
+             gradientUnits="userSpaceOnUse" />
+    </defs>
+    <sodipodi:namedview
+         id="base"
+         pagecolor="#ffffff"
+         bordercolor="#666666"
+         borderopacity="1.0"
+         inkscape:pageopacity="0.0"
+         inkscape:pageshadow="2"
+         inkscape:zoom="0.575"
+         inkscape:cx="600"
+         inkscape:cy="315"
+         inkscape:document-units="px"
+         inkscape:current-layer="layer1"
+         showgrid="false"
+         units="px" />
+    <g
+         inkscape:label="Layer 1"
+         inkscape:groupmode="layer"
+         id="layer1"
+         transform="translate(0,-422.36232)">
+        <path
+             transform="translate(0,422.36232)"
+             style="fill:url(#linearGradient8119);fill-rule:evenodd;stroke:#000000;stroke-width:1px"
+             d="M -18.057457,-54.54176 1257.4556,-18.426845 1239.3981,661.19012 -64.021894,659.54854 Z"
+             id="path8101"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccc" />
+    </g>
+    <g
+         inkscape:groupmode="layer"
+         id="layer2"
+         inkscape:label="Layer 2">
+        <flowRoot
+             xml:space="preserve"
+             id="flowRoot8105"
+             style="font-size:40.00075531000000240px;line-height:125%;font-family:'Helvetica Neue';-inkscape-font-specification:'Helvetica Neue, Normal';letter-spacing:0px;word-spacing:0px;fill:#ffffff;stroke-width:1px"
+             transform="matrix(7.8089159,0,0,7.8089159,-1920.6978,-510.15452)"><flowRegion
+                 id="flowRegion8107"><rect
+                     id="rect8109"
+                     width="617.23663"
+                     height="472.77701"
+                     x="293.84406"
+                     y="80.068398"
+                     style="-inkscape-font-specification:'Helvetica Neue, Normal'" /></flowRegion><flowPara
+                 id="flowPara8111">CC</flowPara></flowRoot>    </g>
+    <metadata
+         id="metadata8121">
+        <rdf:RDF>
+            <cc:Work
+                 rdf:about="">
+                <dc:title></dc:title>
+            </cc:Work>
+        </rdf:RDF>
+    </metadata>
+</svg>
