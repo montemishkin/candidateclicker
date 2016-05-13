@@ -9,6 +9,8 @@ import 'styles/css/main.css'
 
 // google analytics
 import './ga'
+// facebook analytics
+import './fb'
 
 
 // run main client code
