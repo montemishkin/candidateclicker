@@ -1,0 +1,24 @@
+cc-nginx:
+    build: ./nginx
+    links:
+        - cc-node1
+        - cc-node2
+        - cc-node3
+    ports:
+        - "8000:80"
+cc-node1:
+    build: ./node
+    links:
+        - cc-psql
+cc-node2:
+    build: ./node
+    links:
+        - cc-psql
+cc-node3:
+    build: ./node
+    links:
+        - cc-psql
+cc-psql:
+    build: ./psql
+    environment:
+        POSTGRES_PASSWORD: $CC_POSTGRES_PASSWORD
