@@ -1,7 +1,6 @@
 // third party imports
 import express from 'express'
 // local imports
-import projectPaths from 'config/projectPaths'
 import randomPermutation from 'util/randomPermutation'
 import commafy from 'util/commafy'
 import {Candidate} from 'db'
