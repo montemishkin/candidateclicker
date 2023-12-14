@@ -1,14 +1,15 @@
 FROM node:4-wheezy
-
 EXPOSE 8000
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+ENV APP_DIR="/usr/src/app"
 
-COPY build/ /usr/src/app/
-COPY src/templates /usr/src/app/templates
-COPY package.json /usr/src/app
+RUN mkdir -p $APP_DIR
+WORKDIR $APP_DIR
+
+COPY build/ $APP_DIR
+COPY src/templates $APP_DIR/templates
+COPY package.json $APP_DIR
 
 RUN npm install --production
 
-CMD ["node", "/usr/src/app/index.js", "8000"]
+CMD node $APP_DIR/index.js 8000

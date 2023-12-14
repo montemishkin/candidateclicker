@@ -1,4 +1,5 @@
 cc-nginx:
+    restart: always
     build: ./nginx
     links:
         - cc-node1
@@ -7,18 +8,22 @@ cc-nginx:
     ports:
         - "8000:80"
 cc-node1:
+    restart: always
     build: ./node
     links:
         - cc-psql
 cc-node2:
+    restart: always
     build: ./node
     links:
         - cc-psql
 cc-node3:
+    restart: always
     build: ./node
     links:
         - cc-psql
 cc-psql:
+    restart: always
     build: ./psql
     environment:
-        POSTGRES_PASSWORD: $CC_POSTGRES_PASSWORD
+        POSTGRES_PASSWORD: $CANDIDATECLICKER_POSTGRES_PASSWORD

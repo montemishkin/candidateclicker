@@ -3,6 +3,7 @@ import Sequelize from 'sequelize'
 // local imports
 import settings from 'config/settings'
 import candidates from 'candidates'
+import createRetry from 'util/createRetry'
 
 
 const db = new Sequelize(settings.db, settings.dbUser, settings.dbPassword, {
@@ -32,9 +33,10 @@ export const Candidate = db.define('candidate', {
 })
 
 
-db.sync().then(() => {
-    candidates.forEach(candidate => {
-        Candidate.findOrCreate({
+createRetry({
+    errorMessage: 'Error syncing initial data to db: ',
+    createPromise: () => db.sync().then(() => Promise.all(
+        candidates.map(candidate => db.models.candidate.findOrCreate({
             where: {
                 name: candidate.name,
             },
@@ -44,12 +46,8 @@ db.sync().then(() => {
                 width: candidate.width,
                 clicks: 0,
             },
-        })
-    })
-}).catch(error => {
-    // TODO: improve error handling
-    throw error
-})
-
+        }))
+    )),
+})()
 
 export default db

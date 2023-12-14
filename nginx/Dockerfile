@@ -1,8 +1,10 @@
 FROM nginx:stable
 EXPOSE 80
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+ENV APP_DIR="/usr/src/app"
+
+RUN mkdir -p $APP_DIR
+WORKDIR $APP_DIR
 
 COPY config/nginx /etc/nginx/nginx.conf
-COPY public/ /usr/src/app/static
+COPY public/ $APP_DIR/static

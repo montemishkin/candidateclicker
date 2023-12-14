@@ -4,7 +4,9 @@ import express from 'express'
 import projectPaths from 'config/projectPaths'
 import randomPermutation from 'util/randomPermutation'
 import commafy from 'util/commafy'
-import {Candidate} from 'db'
+import createRetry from 'util/createRetry'
+import db from 'db'
+
 
 const server = express()
 
@@ -14,8 +16,12 @@ server.set('views', './templates')
 
 
 server.all('*', (req, res) => {
-    Candidate.all().then(candidates => {
-        res.render('index', {
+    createRetry({
+        errorMessage: 'Error fetching candidates from db: ',
+        // TODO: better error page
+        handleRepeatedError: () => res.send('woops!'),
+        createPromise: () => db.models.candidate.all(),
+        handleResolve: (candidates) => res.render('index', {
             candidates: randomPermutation(
                 candidates.map(candidate => {
                     return {
@@ -28,11 +34,8 @@ server.all('*', (req, res) => {
                 })
             ),
             year: (new Date()).getFullYear(),
-        })
-    }).catch(() => {
-        // TODO: improve error handling
-        res.send('woops!')
-    })
+        }),
+    })()
 })
 
 
